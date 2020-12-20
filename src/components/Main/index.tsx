@@ -1,16 +1,107 @@
+import React from 'react'
+
 import * as S from './styles'
 
-export const Main = ({
-  title = 'React with NextJS',
-  description = 'TypeScript, ReactJS, NextJS and Styled Components'
-}) => (
-  <S.Wrapper>
-    <S.Logo src="/img/logo.svg" alt="Atom image of React in a Pink Badge" />
-    <S.Title>{title}</S.Title>
-    <S.Description>{description}</S.Description>
-    <S.Illustration
-      src="/img/hero-illustration.svg"
-      alt="developer in front of a screen with code"
-    />
-  </S.Wrapper>
-)
+
+export const Main = () => {
+  return (
+    <S.MainWrapper>
+      <S.Header>
+        <p>image</p>
+        <p>navbar</p>
+      </S.Header>
+      <S.Main>
+        <S.IconsWrapper>
+          <div>
+            <p>darkMode Icon</p>
+          </div>
+          <S.DisplayModeWrapper>
+            <div>icon</div>
+            <div>icon</div>
+          </S.DisplayModeWrapper>
+        </S.IconsWrapper>
+        <S.MainPortfolioContainer>
+          <S.LabelSpan>Main Portfolio</S.LabelSpan>
+          <S.Container>
+            <S.TotalSpan>$93000</S.TotalSpan>
+            <S.IconsContainer>
+              <p>icon</p>
+              <p>icon</p>
+              <p>icon</p>
+            </S.IconsContainer>
+          </S.Container>
+        </S.MainPortfolioContainer>
+        <S.StyledInput />
+        <S.CardContainer>
+          <S.Wrapper>
+            <S.ColoredBorder />
+            <S.CardWrapper>
+              <S.LeftWrapper>
+                <S.LightIcon />
+                <S.CryptoIcon />
+                <span>Bitcoin</span>
+                <span>4%</span>
+              </S.LeftWrapper>
+              <S.CardIconsWrapper>
+                <p>icon</p>
+                <p>icon</p>
+                <p>icon</p>
+              </S.CardIconsWrapper>
+            </S.CardWrapper>
+          </S.Wrapper>
+
+          <S.Wrapper>
+            <S.ColoredBorder />
+            <S.CardWrapper>
+              <S.LeftWrapper>
+                <S.LightIcon />
+                <S.CryptoIcon />
+                <span>Bitcoin</span>
+                <span>4%</span>
+              </S.LeftWrapper>
+              <S.CardIconsWrapper>
+                <p>icon</p>
+                <p>icon</p>
+                <p>icon</p>
+              </S.CardIconsWrapper>
+            </S.CardWrapper>
+          </S.Wrapper>
+
+          <S.Wrapper>
+            <S.ColoredBorder />
+            <S.CardWrapper>
+              <S.LeftWrapper>
+                <S.LightIcon />
+                <S.CryptoIcon />
+                <span>Bitcoin</span>
+                <span>4%</span>
+              </S.LeftWrapper>
+              <S.CardIconsWrapper>
+                <p>icon</p>
+                <p>icon</p>
+                <p>icon</p>
+              </S.CardIconsWrapper>
+            </S.CardWrapper>
+          </S.Wrapper>
+
+          <S.Wrapper>
+            <S.ColoredBorder />
+            <S.CardWrapper>
+              <S.LeftWrapper>
+                <S.LightIcon />
+                <S.CryptoIcon />
+                <span>Bitcoin</span>
+                <span>4%</span>
+              </S.LeftWrapper>
+              <S.CardIconsWrapper>
+                <p>icon</p>
+                <p>icon</p>
+                <p>icon</p>
+              </S.CardIconsWrapper>
+            </S.CardWrapper>
+          </S.Wrapper>
+        </S.CardContainer>
+      </S.Main>
+    </S.MainWrapper>
+  )
+}
