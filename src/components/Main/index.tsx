@@ -1,9 +1,27 @@
+import { Card } from 'components/Card'
+import { CenteredBox } from 'components/CenteredBox'
+import { Icon } from 'components/Icon'
 import React from 'react'
+import { Coin } from 'types'
 
+import {
+  bitcoin_empty,
+  bitcoin_filled,
+  decrease,
+  increase,
+  laptop,
+} from '../../../utils/iconsPath'
 import * as S from './styles'
 
+type MainProps = {
+  coins: Coin[]
+}
+export const Main = (props: MainProps) => {
+  const { coins } = props
 
-export const Main = () => {
+  // TODO: get this from api
+  const userHasCoin = false
+
   return (
     <S.MainWrapper>
       <S.Header>
@@ -33,73 +51,45 @@ export const Main = () => {
         </S.MainPortfolioContainer>
         <S.StyledInput />
         <S.CardContainer>
-          <S.Wrapper>
-            <S.ColoredBorder />
-            <S.CardWrapper>
-              <S.LeftWrapper>
-                <S.LightIcon />
-                <S.CryptoIcon />
-                <span>Bitcoin</span>
-                <span>4%</span>
-              </S.LeftWrapper>
-              <S.CardIconsWrapper>
-                <p>icon</p>
-                <p>icon</p>
-                <p>icon</p>
-              </S.CardIconsWrapper>
-            </S.CardWrapper>
-          </S.Wrapper>
+          {coins.map(coin => {
+            const { id, image, name, price_change_percentage_24h } = coin
 
-          <S.Wrapper>
-            <S.ColoredBorder />
-            <S.CardWrapper>
-              <S.LeftWrapper>
-                <S.LightIcon />
-                <S.CryptoIcon />
-                <span>Bitcoin</span>
-                <span>4%</span>
-              </S.LeftWrapper>
-              <S.CardIconsWrapper>
-                <p>icon</p>
-                <p>icon</p>
-                <p>icon</p>
-              </S.CardIconsWrapper>
-            </S.CardWrapper>
-          </S.Wrapper>
+            const increaseOrDecrease =
+              price_change_percentage_24h > 0 ? increase : decrease
 
-          <S.Wrapper>
-            <S.ColoredBorder />
-            <S.CardWrapper>
-              <S.LeftWrapper>
-                <S.LightIcon />
-                <S.CryptoIcon />
-                <span>Bitcoin</span>
-                <span>4%</span>
-              </S.LeftWrapper>
-              <S.CardIconsWrapper>
-                <p>icon</p>
-                <p>icon</p>
-                <p>icon</p>
-              </S.CardIconsWrapper>
-            </S.CardWrapper>
-          </S.Wrapper>
+            const percentageColor =
+              price_change_percentage_24h > 0 ? 'green' : 'red'
 
-          <S.Wrapper>
-            <S.ColoredBorder />
-            <S.CardWrapper>
-              <S.LeftWrapper>
-                <S.LightIcon />
-                <S.CryptoIcon />
-                <span>Bitcoin</span>
-                <span>4%</span>
-              </S.LeftWrapper>
-              <S.CardIconsWrapper>
-                <p>icon</p>
-                <p>icon</p>
-                <p>icon</p>
-              </S.CardIconsWrapper>
-            </S.CardWrapper>
-          </S.Wrapper>
+            return (
+              <Card
+                key={id}
+                left={
+                  <CenteredBox>
+                    <Icon
+                      size="medium"
+                      src={userHasCoin ? bitcoin_filled : bitcoin_empty}
+                    />
+                    <Icon size="large" src={image} />
+                    <span>{name}</span>
+                  </CenteredBox>
+                }
+                right={
+                  <CenteredBox>
+                    <span
+                      style={{
+                        color: percentageColor
+                      }}
+                    >
+                      {price_change_percentage_24h}
+                    </span>
+
+                    <Icon src={increaseOrDecrease} size="medium" />
+                    <Icon src={laptop} size="medium" />
+                  </CenteredBox>
+                }
+              />
+            )
+          })}
         </S.CardContainer>
       </S.Main>
     </S.MainWrapper>

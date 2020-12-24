@@ -20,7 +20,7 @@ export const Header = styled.header`
 `
 
 export const Main = styled.div`
-  padding: 1rem;
+  padding: 2rem;
 `
 
 export const IconsWrapper = styled.div`
@@ -63,56 +63,20 @@ export const LabelSpan = styled.span`
 export const TotalSpan = styled.span`
   font-size: 3rem;
 `
-
-export const IconsContainer = styled.div`
-  display: flex;
-  & > * {
-    margin-left: 1rem;
-  }
-`
-
 export const Container = styled.div`
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 `
-
-export const CardContainer = styled.div`
-  width: 80%;
-  margin: 3rem auto 1rem;
+export const CardContainer = styled.section`
   color: #000;
   display: flex;
   flex-direction: column;
 `
-
-export const Wrapper = styled.div`
-  display: flex;
-  background: white;
-  border-radius: 1rem;
-  margin-bottom: 1rem;
-  /* border-top: 1px solid black;
-  border-right: 1px solid black;
-  border-bottom: 1px solid black; */
-  border: 1px solid black;
-`
-
-export const ColoredBorder = styled.div`
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-  background: orange;
-  width: 2%;
-  height: 100%;
-  height: 10rem;
-  border-right: 1px solid black;
-`
-
-export const CardWrapper = styled.div`
-  padding: 1rem;
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+export const CurrencyImage = styled.img`
+  height: 10rem !important;
+  width: 10rem !important;
 `
 
 export const LeftWrapper = styled.div`
@@ -123,22 +87,9 @@ export const LeftWrapper = styled.div`
   }
 `
 
-export const LightIcon = styled.div`
-  height: 1rem;
-  width: 1rem;
-  border-radius: 50%;
-  background: green;
-`
-
-export const CryptoIcon = styled.div`
-  height: 5rem;
-  width: 5rem;
-  border-radius: 50%;
-  background: orange;
-`
-
-export const CardIconsWrapper = styled.div`
+export const IconsContainer = styled.div`
   display: flex;
+  align-items: center;
   > * {
     margin-left: 1rem;
   }
