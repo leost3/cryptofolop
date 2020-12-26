@@ -1,19 +1,23 @@
 import React, { ReactNode } from 'react'
 
+import * as S from './styles'
+
+
 type CardProps = {
   left?: ReactNode
   right?: ReactNode
   center?: ReactNode
+  className?: string
 }
 
 export function Card(props: CardProps) {
-  const { center, left, right } = props
+  const { center, left, right, className } = props
 
   return (
-    <div className="mb-8 rounded-xl border-l-8 border-l-red-500 border-l-solid border-solid border-2 border-gray flex items-center p-4 flex-1 justify-between ">
+    <S.Card className={className}>
       {left}
       {center}
       {right}
-    </div>
+    </S.Card>
   )
 }
