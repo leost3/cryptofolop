@@ -1,0 +1,14 @@
+
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+
+  .center {
+    @apply flex content-center items-center;
+  }
+
+
+  .badge {
+    @apply py-2 px-3 text-2xl text-white rounded-md font-medium	;
+  }
