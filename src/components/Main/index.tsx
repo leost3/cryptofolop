@@ -1,17 +1,24 @@
 import { Card } from 'components/Card'
 import { Icon } from 'components/Icon'
+import { Logo } from 'components/Logo'
 import React from 'react'
 import { Coin } from 'types'
 
 import {
+  bitcoin,
   bitcoin_empty,
   bitcoin_filled,
   decrease,
+  dollar,
+  grid,
   increase,
   laptop,
+  list,
+  money,
+  moon,
+  sun,
 } from '../../../utils/iconsPath'
 import * as S from './styles'
-
 
 type MainProps = {
   coins: Coin[]
@@ -22,36 +29,50 @@ export const Main = (props: MainProps) => {
   // TODO: get this from api
   const userHasCoin = false
 
+  const global = {
+    mode: 'dark',
+    display: 'list'
+  }
+
   return (
     <S.Main>
       <S.Header>
-        <p>image</p>
+        <Logo />
         <p>navbar</p>
       </S.Header>
       <S.CryptoSection>
         <div className="flex justify-between mb-10 text-black">
           <div>
-            <p>darkMode Icon</p>
+            <Icon src={global.mode === 'dark' ? sun : moon} />
           </div>
-          <div className="flex space-x-2">
-            <div>icon</div>
-            <div>icon</div>
+          <div className="flex">
+            <Icon src={global.display ? grid : list} />
           </div>
         </div>
-        <div className="text-black px-5 py-10 border border-solid border-black rounded-2xl relative flex justify-between items-center">
+        <div className="text-black py-32 shadow-lg relative flex flex-col items-center space-y-20 ">
           <p className="absolute left-1/2 transform -translate-x-1/2 text-5xl top-5">
             Main Portfolio
           </p>
-          <p className="text-5xl">$93000</p>
+          <p className="text-8xl flex items-center ">
+            <Icon size="medium" src={dollar} />
+            93000
+          </p>
           <S.IconsContainer>
-            <p>icon</p>
-            <p>icon</p>
-            <p>icon</p>
+            <Icon src={bitcoin} />
+            {/* TPDP: replace ny toggle component */}
+            <p>toggle component</p>
+            <Icon src={money} />
           </S.IconsContainer>
         </div>
         <div className="text-black flex flex-col">
           {coins.map(coin => {
-            const { id, image, name, price_change_percentage_24h } = coin
+            const {
+              id,
+              image,
+              name,
+              current_price,
+              price_change_percentage_24h
+            } = coin
 
             const increaseOrDecrease =
               price_change_percentage_24h > 0 ? increase : decrease
@@ -61,18 +82,23 @@ export const Main = (props: MainProps) => {
 
             return (
               <Card
+                className="shadow-lg"
                 key={id}
                 left={
-                  <div className="center">
+                  <div className="center space-y-6 flex flex-col">
                     <Icon
                       className="p-2"
-                      size="medium"
                       src={userHasCoin ? bitcoin_filled : bitcoin_empty}
                     />
                     <Icon size="large" src={image} />
+                    <p className="text-4xl">{name.toUpperCase()}</p>
                   </div>
                 }
-                center={<p className="text-8xl">{name.toUpperCase()}</p>}
+                center={
+                  <p className="text-6xl  sm:text-8xl">{`$ ${current_price.toFixed(
+                    2
+                  )}`}</p>
+                }
                 right={
                   <div className="center content-between space-x-4">
                     <div className={`badge ${percentageColor}`}>
