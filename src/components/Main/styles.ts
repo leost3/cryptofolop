@@ -74,18 +74,6 @@ export const CardContainer = styled.section`
   display: flex;
   flex-direction: column;
 `
-export const CurrencyImage = styled.img`
-  height: 10rem !important;
-  width: 10rem !important;
-`
-
-export const LeftWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  > *:not(:first-child) {
-    margin-left: 1rem;
-  }
-`
 
 export const IconsContainer = styled.div`
   display: flex;

@@ -1,5 +1,4 @@
 import { Card } from 'components/Card'
-import { CenteredBox } from 'components/CenteredBox'
 import { Icon } from 'components/Icon'
 import React from 'react'
 import { Coin } from 'types'
@@ -50,7 +49,7 @@ export const Main = (props: MainProps) => {
           </S.Container>
         </S.MainPortfolioContainer>
         <S.StyledInput />
-        <S.CardContainer>
+        <div className="text-black flex flex-col">
           {coins.map(coin => {
             const { id, image, name, price_change_percentage_24h } = coin
 
@@ -58,39 +57,36 @@ export const Main = (props: MainProps) => {
               price_change_percentage_24h > 0 ? increase : decrease
 
             const percentageColor =
-              price_change_percentage_24h > 0 ? 'green' : 'red'
+              price_change_percentage_24h > 0 ? 'bg-green-500' : ' bg-red-500'
 
             return (
               <Card
                 key={id}
                 left={
-                  <CenteredBox>
+                  <div className="center">
                     <Icon
+                      className="p-2"
                       size="medium"
                       src={userHasCoin ? bitcoin_filled : bitcoin_empty}
                     />
                     <Icon size="large" src={image} />
-                    <span>{name}</span>
-                  </CenteredBox>
+                  </div>
                 }
+                center={<p className="text-8xl">{name.toUpperCase()}</p>}
                 right={
-                  <CenteredBox>
-                    <span
-                      style={{
-                        color: percentageColor
-                      }}
-                    >
-                      {price_change_percentage_24h}
-                    </span>
+                  <div className="center content-between space-x-4">
+                    <div className={`badge ${percentageColor}`}>
+                      {`${price_change_percentage_24h.toFixed(2)} %`}
+                    </div>
 
                     <Icon src={increaseOrDecrease} size="medium" />
                     <Icon src={laptop} size="medium" />
-                  </CenteredBox>
+                  </div>
                 }
               />
             )
           })}
-        </S.CardContainer>
+        </div>
       </S.Main>
     </S.MainWrapper>
   )
