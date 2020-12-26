@@ -12,6 +12,7 @@ import {
 } from '../../../utils/iconsPath'
 import * as S from './styles'
 
+
 type MainProps = {
   coins: Coin[]
 }
@@ -22,33 +23,32 @@ export const Main = (props: MainProps) => {
   const userHasCoin = false
 
   return (
-    <S.MainWrapper>
+    <S.Main>
       <S.Header>
         <p>image</p>
         <p>navbar</p>
       </S.Header>
-      <S.Main>
-        <S.IconsWrapper>
+      <S.CryptoSection>
+        <div className="flex justify-between mb-10 text-black">
           <div>
             <p>darkMode Icon</p>
           </div>
-          <S.DisplayModeWrapper>
+          <div className="flex space-x-2">
             <div>icon</div>
             <div>icon</div>
-          </S.DisplayModeWrapper>
-        </S.IconsWrapper>
-        <S.MainPortfolioContainer>
-          <S.LabelSpan>Main Portfolio</S.LabelSpan>
-          <S.Container>
-            <S.TotalSpan>$93000</S.TotalSpan>
-            <S.IconsContainer>
-              <p>icon</p>
-              <p>icon</p>
-              <p>icon</p>
-            </S.IconsContainer>
-          </S.Container>
-        </S.MainPortfolioContainer>
-        <S.StyledInput />
+          </div>
+        </div>
+        <div className="text-black px-5 py-10 border border-solid border-black rounded-2xl relative flex justify-between items-center">
+          <p className="absolute left-1/2 transform -translate-x-1/2 text-5xl top-5">
+            Main Portfolio
+          </p>
+          <p className="text-5xl">$93000</p>
+          <S.IconsContainer>
+            <p>icon</p>
+            <p>icon</p>
+            <p>icon</p>
+          </S.IconsContainer>
+        </div>
         <div className="text-black flex flex-col">
           {coins.map(coin => {
             const { id, image, name, price_change_percentage_24h } = coin
@@ -87,7 +87,7 @@ export const Main = (props: MainProps) => {
             )
           })}
         </div>
-      </S.Main>
-    </S.MainWrapper>
+      </S.CryptoSection>
+    </S.Main>
   )
 }
