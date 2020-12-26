@@ -24,4 +24,4 @@ export const searching = '/img/searching.svg'
 
 export const sun = '/img/sun.svg'
 
-export const task = '/img/task.svg'
+export const list = '/img/list.svg'
