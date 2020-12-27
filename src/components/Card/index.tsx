@@ -1,7 +1,7 @@
+import { Divider } from 'components/Divider'
 import React, { ReactNode } from 'react'
 
 import * as S from './styles'
-
 
 type CardProps = {
   left?: ReactNode
@@ -16,7 +16,9 @@ export function Card(props: CardProps) {
   return (
     <S.Card className={className}>
       {left}
+      <Divider />
       {center}
+      <Divider />
       {right}
     </S.Card>
   )
