@@ -2,20 +2,19 @@ import styled from 'styled-components'
 
 export const Main = styled.main.attrs({
   className: 'text-white w-full h-full'
-})``
-
-export const Header = styled.header.attrs({
-  className: 'text-red-500 items-center border-b-2 border-b-solid border-black'
 })`
+  @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
   & {
     > * {
-      display: inline-block;
+      font-family: 'Bangers', cursive;
     }
   }
-
-  display: flex;
-  justify-content: space-between;
 `
+
+export const Header = styled.header.attrs({
+  className:
+    'p-9 text-red-500 items-center border-b-2 border-b-solid border-black flex justify-between'
+})``
 
 export const CryptoSection = styled.section.attrs({
   className: 'p-10'

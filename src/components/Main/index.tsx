@@ -1,6 +1,5 @@
 import { Card } from 'components/Card'
 import { Icon } from 'components/Icon'
-import { Logo } from 'components/Logo'
 import React from 'react'
 import { Coin } from 'types'
 
@@ -20,6 +19,7 @@ import {
 } from '../../../utils/iconsPath'
 import * as S from './styles'
 
+
 type MainProps = {
   coins: Coin[]
 }
@@ -36,10 +36,6 @@ export const Main = (props: MainProps) => {
 
   return (
     <S.Main>
-      <S.Header>
-        <Logo />
-        <p>navbar</p>
-      </S.Header>
       <S.CryptoSection>
         <div className="flex justify-between mb-10 text-black">
           <div>
