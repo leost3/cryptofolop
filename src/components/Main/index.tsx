@@ -20,6 +20,12 @@ import {
 import * as S from './styles'
 
 
+
+
+
+
+
+
 type MainProps = {
   coins: Coin[]
 }
@@ -45,10 +51,8 @@ export const Main = (props: MainProps) => {
             <Icon src={global.display ? grid : list} />
           </div>
         </div>
-        <div className="text-black py-32 shadow-lg relative flex flex-col items-center space-y-20 ">
-          <p className="absolute left-1/2 transform -translate-x-1/2 text-5xl top-5">
-            Main Portfolio
-          </p>
+        <div className="text-black bg-white py-10 shadow-lg relative flex flex-col items-center space-y-5 ">
+          <p className="text-5xl top-5">Main Portfolio</p>
           <p className="text-8xl flex items-center ">
             <Icon size="medium" src={dollar} />
             93000
@@ -78,7 +82,7 @@ export const Main = (props: MainProps) => {
 
             return (
               <Card
-                className="shadow-lg"
+                className="shadow-md bg-white"
                 key={id}
                 left={
                   <div className="center space-y-6 flex flex-col">
@@ -91,9 +95,11 @@ export const Main = (props: MainProps) => {
                   </div>
                 }
                 center={
-                  <p className="text-6xl  sm:text-8xl">{`$ ${current_price.toFixed(
-                    2
-                  )}`}</p>
+                  <div className="py-20">
+                    <p className="text-6xl  sm:text-8xl">{`$ ${current_price.toFixed(
+                      2
+                    )}`}</p>
+                  </div>
                 }
                 right={
                   <div className="center content-between space-x-4">
