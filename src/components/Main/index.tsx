@@ -19,13 +19,6 @@ import {
 } from '../../../utils/iconsPath'
 import * as S from './styles'
 
-
-
-
-
-
-
-
 type MainProps = {
   coins: Coin[]
 }

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Main = styled.main.attrs({
-  className: 'text-white w-full h-full '
+  className: 'text-white w-full h-full bg-gray-100'
 })`
   @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
   & {
